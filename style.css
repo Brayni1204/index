@@ -18,7 +18,7 @@ html, body {
 }
 .wrap {
   position: relative;
-  height: 100%;
+  min-height: 100vh;
   display: grid;
   place-items: center;
   padding: 24px;
@@ -139,6 +139,7 @@ textarea { min-height: 96px; resize: vertical }
   inset: 0;
   z-index: 1;
   pointer-events: none;
+  overflow: hidden;
 }
 .heart {
   position: absolute;
@@ -169,6 +170,9 @@ textarea { min-height: 96px; resize: vertical }
   color: var(--muted);
   margin-top: 16px;
 }
+@media (min-width: 600px) {
+  html, body { overflow-y: hidden }
+}
 @media (max-width: 480px) {
   .wrap { padding: 18px }
   .card {
@@ -185,14 +189,4 @@ textarea { min-height: 96px; resize: vertical }
   .wrap { padding: 14px }
   .card { padding: 16px }
   .message { font-size: 15px }
-}
-
-@media (min-width: 600px) {
-  .type {
-    display: inline-block;
-    border-right: 1px solid var(--accent);
-    white-space: nowrap;
-    overflow: hidden;
-    animation: type 3s steps(30, end) 1 both, blink .8s step-end infinite;
-  }
 }
